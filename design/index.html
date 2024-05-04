@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./index.css">
+  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+</head>
+<body>
+
+  <section class="content-wrapper">
+    <section class="overview-section">
+      <section class="branding">
+        <img class="logo">
+      </section>
+      <section class="announcement-section">
+        <h1>
+          <span class="gold-header-1">We're</span><br/>
+          <span class="black-header-1">coming<br/>soon</span>
+        </h1>
+        <p class="gold-paragraph">
+          Hello fellow shoppers! We're currently building our new fashion store. 
+          Add your email below to stay up-to-date with announcements and our launch deals.
+        </p>
+        <section class="sign-up">
+          <section class="email-sign-up">
+            <input id="email" type="text" placeholder="Email Address" class="email-input" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"/>
+            <img class="email-error-icon"/>
+            <button id="submit-email" type="submit" class="sign-up-button" onclick="onSignUp()"><img class="sign-up-button-icon"/></button>
+          </section>
+          <p id="email-error" class="email-error-text">Please provide a valid email</p>
+        </section>
+    </section>
+    </section>
+    <section class="hero-section">
+           <img class="hero"/> 
+    </section>
+  </section>
+    <!-- <section class="attribution-section">
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/ianwilk20">Ian Wilkinson</a>.
+      </p>
+      </section> -->
+</body>
+<script>
+
+  const emailInput = document.getElementById('email');
+  const errorMessage = document.getElementById('email-error');
+  const signUpButton = document.getElementById('submit-email');
+
+    emailInput.addEventListener('input', () => {
+        if (!emailInput.validity.valid) {
+            errorMessage.style.display = "block"
+            errorMessage.textContent = 'Please provide a valid email';
+            signUpButton.toggleAttribute("disabled")
+        } else {
+            errorMessage.style.display = "none"  
+            errorMessage.textContent = '';
+            signUpButton.toggleAttribute("enabled")
+        }
+    });
+  
+  function onSignUp() {
+    if (emailInput.validity.valid) {
+      alert("Thank you for registering " + email.textContent + " for our announcements and deals!")
+      emailInput.textContent = ''
+    }
+    // let email = document.getElementById("email").value
+    // if (email.match("[^@\s]+@[^@\s]+\.[^@\s]+")) {
+    //   //Valid email
+    //   document.getElementById("email").style.border = ""
+    //   document.getElementById("email-error").style.display = "none"
+    //   document.getElementById("email").value = ''
+    //   alert("Thank you for registering " + email + " for our announcements and deals!")
+    // } else {
+    //   //Invalid email
+    //   document.getElementById("email").style.border = "rgb(224,112,110) 1px solid"
+    //   document.getElementById("email-error").style.display = "block"
+    // }
+  }
+</script>
+</html>

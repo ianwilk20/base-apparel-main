@@ -64,6 +64,11 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+I was unsure if the "We're" part of "We're coming soon" should be it's own h1 tag and "coming soon" it's own h1 tag. I learned that for SEO reasons (which don't necessarily matter for the sake of the challenge but for best practices) to have two spans in the same h1 tag.
+https://stackoverflow.com/questions/31499185/two-different-styles-in-the-same-h1-tag
+
+Email pattern recognition: https://stackoverflow.com/a/36379040
+
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
