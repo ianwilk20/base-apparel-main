@@ -15,63 +15,146 @@
     }
 }
 
+@media (width < 900px) {
+    :root {
+        font-size: 6pt;
+    }
+}
+
 body {
     font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
-    min-height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
 }
 
-.content-wrapper {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    box-sizing: border-box;
-}
+@media (width > 900px) {
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
 
-
-@media (1300px <= width <= 2000px) {
     .overview-section {
-        flex-direction: column;
+        display: flex;
+        flex: 1;
+    }
+
+    .branding {
+        position: absolute;
         padding: 50px 100px 50px 100px;
-        display: flex;
-        flex-grow: 1;
     }
-}
 
-@media (100px <= width <= 1300px) {
-    .overview-section {
+    .logo {
+        content: url("../assets/images/logo.svg");
+        transform: scale(1);
+    }
+
+    .announcement-section {
+        display: flex;
         flex-direction: column;
-        padding: 50px 50px 50px 50px;
-        display: flex;
-        flex-grow: 1;
+        align-items: flex-start;    
+        flex: 95%;
+        justify-content: center;
+        /* padding-right: 40%; */
+        padding: 50px 20% 50px 100px;
+    }
+
+    .hero {
+        content: url("../assets/images/hero-desktop.jpg");
+        height: 100%;
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .gold-paragraph {
+        color: hsl(0, 36%, 70%);
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.7rem;
+        margin-top: 0px;
+        margin-bottom: 2rem;
+    }
+
+    .email-input {
+        width: 100%;
+        border: rgb(218, 206, 208) 1px solid;
+        color: hsl(0, 6%, 24%);
+        border-radius: 25px;
+        height: 40px;
+        padding: 5px 25px 5px 25px;
+        font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+        font-weight: bold;
     }
 }
 
-.branding {
-    display: flex;
-    width: 10%
+@media (width <= 900px) {
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .overview-section {
+        flex-direction: column-reverse;
+        display: flex;
+    }
+
+    .branding {
+        padding: 25px 0px 25px 0px;
+    }
+
+    .logo {
+        content: url("../assets/images/logo.svg");
+        transform: scale(0.6);
+    }
+
+    .announcement-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+        justify-content: center;
+        padding: 50px 30px 50px 30px;
+    }
+
+    .hero {
+        content: url("../assets/images/hero-mobile.jpg");
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .gold-paragraph {
+        color: hsl(0, 36%, 70%);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        margin-top: 0px;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .email-input {
+        width: 100%;
+        border: rgb(218, 206, 208) 1px solid;
+        color: hsl(0, 6%, 24%);
+        border-radius: 25px;
+        height: 40px;
+        padding: 5px 25px 5px 25px;
+        font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
 }
 
-.logo {
-    content: url("../assets/images/logo.svg");
-    transform: scale(1);
-}
-
-
-.announcement-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;    
-    flex: 95%;
-    justify-content: center;
-    padding-right: 40%;
-}
 
 .gold-header-1 {
     color: hsl(0, 36%, 70%);
@@ -89,15 +172,6 @@ body {
     letter-spacing: .8rem;
 }
 
-.gold-paragraph {
-    color: hsl(0, 36%, 70%);
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.7rem;
-    margin-top: 0px;
-    margin-bottom: 2rem;
-}
-
 .sign-up {
     width: 100%;
 }
@@ -108,17 +182,7 @@ body {
     width: 100%;
 }
 
-.email-input {
-    width: 100%;
-    border: rgb(218, 206, 208) 1px solid;
-    color: hsl(0, 6%, 24%);
-    border-radius: 25px;
-    height: 40px;
-    padding: 5px 25px 5px 25px;
-    font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
+
 .email-input::placeholder {
     color: rgb(218, 206, 208);
     font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
@@ -128,21 +192,15 @@ body {
     border: rgb(224,112,110) 1px solid;
     background-image: url("../assets/images/icon-error.svg");
     background-repeat: no-repeat;
-    background-position: 80% 50%;
+    background-position: 85% 50%;
 }
-
-/* .email-error-icon {
-    content: url("../assets/images/icon-error.svg");
-    position: absolute;
-    transform: scale(0.85);
-} */
 
 .sign-up-button {
     width: 100px;
     border-radius: 25px;
     border: none;
     background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
-    margin-left: -40px;
+    margin-left: -10%;
     box-shadow: 0 5px 20px 3px hsl(0, 80%, 86%);
 }
 
@@ -170,39 +228,10 @@ body {
 }
 
 .hero-section {
-    /* flex: 33.33%; */
     display: flex;
     align-items: center;
-    /* float: right; */
-}
-
-
-@media (1000px <= width <= 2000px) {
-    .hero {
-        content: url("../assets/images/hero-desktop.jpg");
-        height: 100%;
-        width: auto;
-        flex-shrink: 0;
-    }
-}
-
-@media (width < 1000px) {
-    .hero {
-        content: url("../assets/images/hero-mobile.jpg");
-        height: 30%;
-    }
 }
 
 .attribution-section {
     display: flex;
-}
-
-.attribution { 
-    font-size: 11px; 
-    text-align: center; 
-    writing-mode: vertical-lr; 
-    transform: scale(-1, -1);
-}
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
 }

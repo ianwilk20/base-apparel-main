@@ -12,10 +12,10 @@
 <body>
 
   <section class="content-wrapper">
+    <section class="branding">
+      <img class="logo" alt="Base Apparel Logo">
+    </section>
     <section class="overview-section">
-      <section class="branding">
-        <img class="logo">
-      </section>
       <section class="announcement-section">
         <h1>
           <span class="gold-header-1">We're</span><br/>
@@ -28,46 +28,47 @@
         <section class="sign-up">
           <section class="email-sign-up">
             <input id="email" type="text" placeholder="Email Address" class="email-input" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"/>
-            <img class="email-error-icon"/>
             <button id="submit-email" type="submit" class="sign-up-button" onclick="onSignUp()"><img class="sign-up-button-icon"/></button>
           </section>
           <p id="email-error" class="email-error-text">Please provide a valid email</p>
         </section>
-    </section>
-    </section>
-    <section class="hero-section">
-           <img class="hero"/> 
+      </section>
+      <section class="hero-section">
+        <img class="hero" alt="Image of a woman wearing stylish clothing"/> 
+      </section>
     </section>
   </section>
-    <!-- <section class="attribution-section">
-      <p class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="https://github.com/ianwilk20">Ian Wilkinson</a>.
-      </p>
-      </section> -->
 </body>
 <script>
 
   const emailInput = document.getElementById('email');
   const errorMessage = document.getElementById('email-error');
   const signUpButton = document.getElementById('submit-email');
+  const emailErrorIcon = document.getElementById('email-error-icon');
 
     emailInput.addEventListener('input', () => {
         if (!emailInput.validity.valid) {
             errorMessage.style.display = "block"
+            emailErrorIcon.style.display = "block"
             errorMessage.textContent = 'Please provide a valid email';
             signUpButton.toggleAttribute("disabled")
         } else {
             errorMessage.style.display = "none"  
+            emailErrorIcon.style.display = "none"
             errorMessage.textContent = '';
             signUpButton.toggleAttribute("enabled")
         }
     });
   
   function onSignUp() {
-    if (emailInput.validity.valid) {
-      alert("Thank you for registering " + email.textContent + " for our announcements and deals!")
+    if (emailInput.validity.valid && emailInput.value !== "") {
+      alert("Thank you for registering " + emailInput.value + " for our announcements and deals!")
       emailInput.textContent = ''
+    } else {
+      errorMessage.style.display = "block"
+      emailErrorIcon.style.display = "block"
+      errorMessage.textContent = 'Please provide a valid email';
+      signUpButton.toggleAttribute("disabled")
     }
     // let email = document.getElementById("email").value
     // if (email.match("[^@\s]+@[^@\s]+\.[^@\s]+")) {
